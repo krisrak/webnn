@@ -1,0 +1,21 @@
+<html>
+
+<body>
+  <h1>WebNN</h1>
+  <h3>Check WebNN Support</h3>
+
+  <script type="module">
+
+(async () => {
+  var msg = "";
+  if (!navigator.ml) {
+    msg = "<p>WebNN <b>not</b> available</p>";
+  } else {
+    msg = "<p>WebNN available</p>";
+  }
+  document.getElementsByTagName('body')[0].innerHTML += msg;
+})();
+
+</script>
+</body>
+</html>
