@@ -20,7 +20,8 @@ Simple WebNN samples showcasing AI inference using WebNN that can be run on Brow
 
 |Sample Name | Details|
 |---|---|
-|[image_classification_onnx](webnn-samples/image_classification_onnx) |The sample uses MobileNetV2 model to build an image classification system on the web that uses __WebNN with ONNX Runtime Web__. |
+|[image_classification_onnx](webnn-samples/image_classification_onnx) |The sample uses MobileNetV2 ONNX model to build an image classification system on the web that uses __WebNN with ONNX Runtime Web__. |
+|[image_classification_onnx_export](webnn-samples/image_classification_onnx_export)|The sample uses MobileNetV2 __ONNX model exported from HuggingFace__ to build an image classification system on the web that uses __WebNN with ONNX Runtime Web__.|
 |[image_classification_webnn](webnn-samples/image_classification_webnn)|The sample uses MobileNetV2 model to build an image classification system on the web that uses __WebNN API directly__.|
 
 
