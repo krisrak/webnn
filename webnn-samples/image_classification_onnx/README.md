@@ -1,4 +1,4 @@
-# Image Classification with onnxruntime-web
+# Image Classification using WebNN with onnxruntime-web
 
 Sample created using [Microsoft WebNN Tutorial](https://learn.microsoft.com/en-us/windows/ai/directml/webnn-tutorial)
 
