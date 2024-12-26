@@ -53,8 +53,9 @@
     // ort.env.debug = true; 
 
     // Configure WebNN.
-    const modelPath = "./mobilenet_v2_1.0_224/model.onnx";
-    const modelConfig = "./mobilenet_v2_1.0_224/config.json";
+    const path = "./google_mobilenet_v2_1.0_224/"
+    const modelPath = path + "model.onnx";
+    const modelConfig = path + "config.json";
     const devicePreference = "gpu"; // Other options include "npu" and "cpu".
     const options = {
 	    executionProviders: [{ name: "webnn", deviceType: devicePreference, powerPreference: "default" }],
