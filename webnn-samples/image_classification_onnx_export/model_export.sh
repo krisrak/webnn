@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# install optimum exporter cli tools
+# install optimum exporters cli tools
+pip uninstall optimum
 pip install optimum[exporters]
 
 # downgrade huggingface_hub to work-around cached_download import error
