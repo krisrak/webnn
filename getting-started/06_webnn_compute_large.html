@@ -29,32 +29,20 @@
   document.getElementsByTagName('body')[0].innerHTML += "<p>Starting Computation...</p>";
 
   const builder = new MLGraphBuilder(context);
-  const descA = {dataType: 'float32', dimensions: [10000, 10000], shape: [10000, 10000]};
-  const descB = {dataType: 'float32', dimensions: [10000, 10000], shape: [10000, 10000]};
+  const input = {dataType: 'float32', dimensions: [10000, 10000], shape: [10000, 10000], usage: MLTensorUsage.WRITE, writable: true};
+  const output = {dataType: 'float32', dimensions: [10000, 10000], shape: [10000, 10000], usage: MLTensorUsage.READ, readable: true};
   // Step 1: Create a computational graph calculating `c = a * b`.
-  const a = builder.input('a', descA);
-  const b = builder.input('b', descB);
+  const a = builder.input('a', input);
+  const b = builder.input('b', input);
   const c = builder.matmul(a, b);
   // Step 2: Compile it into an executable graph.
   const graph = await builder.build({c});
   // Step 3: Bind input and output buffers to the graph and execute.
-  const bufferA = new Float32Array(10000*10000).fill(1.0);
-  const bufferB = new Float32Array(10000*10000).fill(2.0);
-  descA.usage = MLTensorUsage.WRITE;
-  descA.writable = true;
-  descB.usage = MLTensorUsage.WRITE;
-  descB.writable = true;
-  const tensorA = await context.createTensor(descA);
-  const tensorB = await context.createTensor(descB);
-  context.writeTensor(tensorA, bufferA);
-  context.writeTensor(tensorB, bufferB);
-  const tensorC = await context.createTensor({
-    dataType: 'float32',
-    dimensions: [10000, 10000],
-    shape: [10000, 10000],
-    usage: MLTensorUsage.READ,
-    readable: true,
-  });
+  const tensorA = await context.createTensor(input);
+  const tensorB = await context.createTensor(input);
+  const tensorC = await context.createTensor(output);
+  context.writeTensor(tensorA, new Float32Array(10000*10000).fill(1.0));
+  context.writeTensor(tensorB, new Float32Array(10000*10000).fill(2.0));
   context.dispatch(graph, {a: tensorA, b: tensorB}, {c: tensorC});
   const results = await context.readTensor(tensorC);
   document.getElementsByTagName('body')[0].innerHTML += "Done, C[0,0] = " + new Float32Array(results)[0,0];
