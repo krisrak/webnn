@@ -13,4 +13,4 @@ The sample uses __MobileNetV2__ model to build an image classification system on
 |mobilenet_nhwc.js| Javasvript library for MobileNet V2 model with nhwc input layout|
 |models/mobilenetv2_nhwc/*|mobilenetv2 tflite model test-data from the [github.com/webmachinelearning/test-data](https://github.com/webmachinelearning/test-data/tree/9ddde064bbab8fd21bbcc4071c2546393304db1a/models/mobilenetv2_nhwc)|
 
-Can be tested using the Live Server extension for VS Code
+Can be tested using the "Live Preview" extension for VSCode
