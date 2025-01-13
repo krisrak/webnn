@@ -11,7 +11,7 @@ The sample uses ONNX model exported from HuggingFace to build an image classific
 |model_export.sh|script to export HuggingFace models:<br>- google/mobilenet_v2_1.0_224<br>- facebook/convnextv2-atto-1k-224<br>- microsoft/resnet-18|
 |google_mobilenet_v2_1.0_224/ |ONNX exported model folder generated from _model_export.sh_ script. The folder contains 3 files: [config.json, model.onnx, preprocessor_config.json]|
 
-Can be tested using the Live Server extension for VS Code
+Can be tested using the "Live Preview" extension for VSCode
 
 ### Exporting HuggingFace models to ONNX
 
